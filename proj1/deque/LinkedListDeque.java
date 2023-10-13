@@ -44,4 +44,56 @@ public class LinkedListDeque<T> implements Deque<T>{
         size += 1;
     }
 
+    public boolean isEmpty(){
+        if (size == 0){
+            return true;
+        }
+        return false;
+    }
+
+    public int size(){
+        return size;
+    }
+
+    public void printDeque(){
+        Node current = sentinel.next;
+        if (current != sentinel){
+            System.out.print(current.item+" ");
+        }
+        System.out.println();
+    }
+
+    public T removeFirst(){
+        if (sentinel.next.item != null){
+            T firstItem = sentinel.next.item;
+            sentinel.next = sentinel.next.next;
+            return firstItem;
+        }
+        return null;
+    }
+
+    public T removeLast(){
+        if (sentinel.prev.item != null){
+            T lastItem = sentinel.prev.item;
+            sentinel.prev = sentinel.prev.prev;
+            return lastItem;
+        }
+        return null;
+    }
+
+    public T get(int index){
+        Node current = sentinel;
+        for (int i = -1; i < index; i += 1){
+            current = sentinel.next;
+        }
+        if (current.item != null){
+            return current.item;
+        }
+        return null;
+    }
+
+    public T getRecursive(int index){
+        return null;
+
+    }
 }
