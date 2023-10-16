@@ -67,6 +67,7 @@ public class LinkedListDeque<T> implements Deque<T>{
         if (sentinel.next.item != null){
             T firstItem = sentinel.next.item;
             sentinel.next = sentinel.next.next;
+            size -= 1;
             return firstItem;
         }
         return null;
@@ -76,6 +77,7 @@ public class LinkedListDeque<T> implements Deque<T>{
         if (sentinel.prev.item != null){
             T lastItem = sentinel.prev.item;
             sentinel.prev = sentinel.prev.prev;
+            size -= 1;
             return lastItem;
         }
         return null;
